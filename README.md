@@ -9,9 +9,9 @@ Table of contents:
 - [Documentation](#documentation)
 - [Git syntax](#git-syntax)
 - [Getting help](#getting-help)
-- [Git references](#git-references)
 - [Configuration](#configuration)
 - [Git references](#git-references)
+- [Branches](#branches)
 
 ----
 
@@ -81,3 +81,41 @@ Git references can be substituted for SHA-1 hashes. For example, `git show HEAD`
 - `git push` does not automatically transfer tags
 	- To transfer a single tag: `git push <remote> <tagname>`
 	- To transfer all of the tags: `git push <remote> --tags`
+
+## Branches
+
+### Viewing branches
+
+- `git branch` lists all local branches
+- `git branch -a` lists local and remote tracking branches
+
+### Creating branches
+
+`git branch <name>` creates a new branch label reference and remains us on the original branch.
+
+### Checkout
+
+Use `git checkout <branch_or_commit>` to checkout a branch or a commit. The latter detaches `HEAD`, which makes `HEAD` point directly to a commit instead of a branch label.
+
+Checkout does:
+
+1. Updating the `HEAD` reference
+2. Updating the working tree with the commit files
+
+`git checkout -b <name>` to create and checkout a new branch named `name`.
+
+### Deleting branches
+
+- `git branch -d <name>` deletes the `name` branch
+- `git branch -D <name>` deletes the `name` branch __regardless of unmerged works__
+
+### Dangling commits
+
+Dangling commits do not belong to any branch. They are the unmerged commits from forced-deleted branches. Git periodically does garbage collecting and deletes them.
+
+
+`git reflog` is able to undo an accidental branch delete if the dangling commits are not yet deleted. It returns a __local__ list of recent `HEAD` commits.
+
+![alt text][git_reflog]
+
+[git_reflog]: git_reflog.png "git reflog"
