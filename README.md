@@ -2,20 +2,29 @@
 
 Here is my place to make notes about git and test git functions. Notes would include what I learned from [Version Control with Git](https://www.coursera.org/learn/version-control-with-git/home/info) on Coursera.
 
+Git models the relationship of commits with directed acyclic graph (DAG). The arrows point to a commit's parent(s).
+
+Table of contents:
+
+- [Documentation](#documentation)
+- [Git syntax](#git-syntax)
+- [Getting help](#getting-help)
+- [Git references](#git-references)
+- [Configuration](#configuration)
+- [Git references](#git-references)
+
+----
+
 ## Documentation
 
 - [Reference Manual](https://git-scm.com/docs)
 - [Pro Git](https://git-scm.com/book/en/v2)
 
-## Git syntax and Getting help
-
-Git models the relationship of commits with directed acyclic graph (DAG). The arrows point to a commit's parent(s).
-
-### Syntax
+## Git syntax
 
 `git [command] [--flags] [arguments]`
 
-### Getting help
+## Getting help
 
 - "full" help: `git help [command]` (will be the same with the online documentation)
 - concise help: `git <command> -h`
