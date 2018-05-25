@@ -1,10 +1,10 @@
-# GitNotes
+# Git Notes
 
-Here is my place to make notes about git and test git functions. Notes would include what I learned from [Version Control with Git](https://www.coursera.org/learn/version-control-with-git/home/info) on Coursera.
+Here is my place to make notes about git and test git functions. Notes would include what I learned from [Version Control with Git](https://www.coursera.org/learn/version-control-with-git/home/info) on Coursera. Figures below are all taken from the course.
 
 Git models the relationship of commits with directed acyclic graph (DAG). The arrows point to a commit's parent(s).
 
-Table of contents:
+## Table of contents
 
 - [Documentation](#documentation)
 - [Git syntax](#git-syntax)
@@ -12,6 +12,7 @@ Table of contents:
 - [Configuration](#configuration)
 - [Git references](#git-references)
 - [Branches](#branches)
+- [Merging](#merging)
 
 ----
 
@@ -118,4 +119,43 @@ Dangling commits do not belong to any branch. They are the unmerged commits from
 
 ![alt text][git_reflog]
 
-[git_reflog]: git_reflog.png "git reflog"
+[git_reflog]: figures/git_reflog.png "git reflog"
+
+## Merging
+
+Commits belong to both branches after merging.
+
+![alt text][merge]
+
+[merge]: figures/merge.png "merge"
+
+There are four main types of merges:
+
+1. Fast-forward merge
+2. merge commit
+3. Squash merge
+4. Rebase
+
+### Fast-forward merge
+
+- Moves the base branch label to the tip of the topic branch
+
+![alt text][ff_merge]
+
+[ff_merge]: figures/ff_merge.png "fast-forward merge"
+
+- `git merge <topic_branch>` in the base branch attempts a fast-forward merge by default
+- Results in a linear commit history
+
+### Merge commit
+
+- Combines the commits at the tips of the merged branches
+- Places the result in the merge commits
+
+![alt text][merge_commit]
+
+[merge_commit]: figures/merge_commit.png "merge commit"
+
+- `git merge <topic_branch>` creates a merge commit if it is not fast-forwardable
+- `git merge --no-ff <topic_branch>` always creates a merge commit even when it is fast-forwardable
+- A merge commit has multiple parents
