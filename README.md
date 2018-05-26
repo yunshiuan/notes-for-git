@@ -13,6 +13,7 @@ Git models the relationship of commits with directed acyclic graph (DAG). The ar
 - [Git references](#git-references)
 - [Branches](#branches)
 - [Merging](#merging)
+- [Merge conflicts](#merge-conflicts)
 
 ----
 
@@ -159,3 +160,26 @@ There are four main types of merges:
 - `git merge <topic_branch>` creates a merge commit if it is not fast-forwardable
 - `git merge --no-ff <topic_branch>` always creates a merge commit even when it is fast-forwardable
 - A merge commit has multiple parents
+
+## Merge conflicts
+
+Merge conflicts occur only when two branches change the same hunk in different ways.
+
+Two options one has when s/he encounters a merge conflict:
+
+1. Fix conflicts and run `git commit`
+2. `git merge --abort` to abort the merge
+
+### Resolving conflicts
+
+Resolving a merge conflict involves three commit:
+
+1. The tip of the current branch - "ours" or "mine"
+2. The tip of the branch to be merged - "theirs"
+3. A common ancestor - "merge base"
+
+### Reading conflict markers
+
+- Git creates files with in the working tree containing conflict markers when a conflict occurs
+- Text from the `HEAD` commit (ours) is between <<<<<<< and =======
+- Text from the branch to be merged (theirs) is between ======= and >>>>>>>
