@@ -14,6 +14,7 @@ Git models the relationship of commits with directed acyclic graph (DAG). The ar
 - [Branches](#branches)
 - [Merging](#merging)
 - [Merge conflicts](#merge-conflicts)
+- [Tracking branches](#tracking-branches)
 
 ----
 
@@ -183,3 +184,12 @@ Resolving a merge conflict involves three commit:
 - Git creates files with in the working tree containing conflict markers when a conflict occurs
 - Text from the `HEAD` commit (ours) is between <<<<<<< and =======
 - Text from the branch to be merged (theirs) is between ======= and >>>>>>>
+
+## Tracking branches
+
+A tracking branch is a local branch that represent a remote one. It looks like `<remote>/<branch>`, e.g. `origin/master` locally, where `origin` is a shortcut for the URL to the remote repository, and `master` is the name of the branch on the remote repository.
+
+- Related but decoupled (no longer in sync)
+- `git branch --all` displays local and tracking branch names
+- `remotes/origin/HEAD` specifies the default remote tracking branch, allowing `<remote>` to be specified instead of `<remote>/<branch>` in Git commands
+- The default tracking branch (`remotes/origin/HEAD`) can be changed with `git remote set-head <remote> <branch>`
