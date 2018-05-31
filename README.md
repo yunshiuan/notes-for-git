@@ -15,6 +15,7 @@ Git models the relationship of commits with directed acyclic graph (DAG). The ar
 - [Merging](#merging)
 - [Merge conflicts](#merge-conflicts)
 - [Tracking branches](#tracking-branches)
+- [Network commands](#network-commands)
 
 ----
 
@@ -193,3 +194,49 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 - `git branch --all` displays local and tracking branch names
 - `remotes/origin/HEAD` specifies the default remote tracking branch, allowing `<remote>` to be specified instead of `<remote>/<branch>` in Git commands
 - The default tracking branch (`remotes/origin/HEAD`) can be changed with `git remote set-head <remote> <branch>`
+
+## Network commands
+
+### Clone
+
+- Copies a remote repository
+
+### Fetch
+
+- Retrieves new objects and references from the remote repository
+- Tracking branches are updated
+
+![alt text][fetch]
+
+[fetch]: figures/fetch.png "fetch"
+
+- After `git fetch`, `git status` will inform us that our current branch is behind the tracking branch
+
+### Pull
+
+- Fetches and merges commits locally
+- `git pull` = `git fetch` + `git merge FETCH_HEAD`
+- Merging options
+	- `--ff` (default): fast-forward if possible, otherwise perform a merge commit
+	
+	![alt text][pull_ff]
+
+[pull_ff]: figures/pull_ff.png "pull with a fast-forward merge"
+	
+	- `--no-ff`: always include a merge commit
+	
+	![alt text][pull_commit]
+
+[pull_commit]: figures/pull_merge_commit.png "pull with a merge commit"
+	
+	- `--ff-only`: cancel instead of doing a merge commit when it is not fast-forwardable
+	- `--rebase [--preserve-merges]`
+- If there are uncommitted changes when `git pull`
+	- Aborted automatically if they are conflicting
+	- Keeping them untouched otherwise
+
+### Push
+
+- Adds new objects and references to the remote repository
+- `git push [-u] [<repository>] [<branch>]`, where `-u` (`--set-upstream`) tracks this branch
+- `fetch`ing or `pull`ing before `push`ing is suggested - the push will be rejected if the tracking branch is not current
