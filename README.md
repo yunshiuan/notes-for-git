@@ -65,12 +65,12 @@ Git references can be substituted for SHA-1 hashes. For example, `git show HEAD`
 ### Prior commits
 
 - `~` refers to a prior commit
-	- `~` or `~1` is "parent"
-	- `~~` or `~2` is "parent's parent"
+  - `~` or `~1` is "parent"
+  - `~~` or `~2` is "parent's parent"
 - `^` refers to a parent in a merge commit
-	- `^` or `^1` is "first parent of the commit"
-	- `^2` is "second parent of a merge commit"
-	- `^^` is first parent's first parent
+  - `^` or `^1` is "first parent of the commit"
+  - `^2` is "second parent of a merge commit"
+  - `^^` is first parent's first parent
 
 ### Tags
 
@@ -217,23 +217,23 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 - Fetches and merges commits locally
 - `git pull` = `git fetch` + `git merge FETCH_HEAD`
 - Merging options
-	- `--ff` (default): fast-forward if possible, otherwise perform a merge commit
+  - `--ff` (default): fast-forward if possible, otherwise perform a merge commit
 	
-	![alt text][pull_ff]
+  ![alt text][pull_ff]
 
 [pull_ff]: figures/pull_ff.png "pull with a fast-forward merge"
+
+  - `--no-ff`: always include a merge commit
 	
-	- `--no-ff`: always include a merge commit
-	
-	![alt text][pull_commit]
+  ![alt text][pull_commit]
 
 [pull_commit]: figures/pull_merge_commit.png "pull with a merge commit"
 	
-	- `--ff-only`: cancel instead of doing a merge commit when it is not fast-forwardable
-	- `--rebase [--preserve-merges]`
+  - `--ff-only`: cancel instead of doing a merge commit when it is not fast-forwardable
+  - `--rebase [--preserve-merges]`
 - If there are uncommitted changes when `git pull`
-	- Aborted automatically if they are conflicting
-	- Keeping them untouched otherwise
+  - Aborted automatically if they are conflicting
+  - Keeping them untouched otherwise
 
 ### Push
 
