@@ -76,15 +76,15 @@ Git references can be substituted for SHA-1 hashes. For example, `git show HEAD`
 
 - `git tag` is used to view all tags in the repository
 - Lightweight tags
-	- A simple reference to a commit
-	- `git tag <tagname> [<commit>]` (`<commit>` defaults to `HEAD`)
+  - A simple reference to a commit
+  - `git tag <tagname> [<commit>]` (`<commit>` defaults to `HEAD`)
 - Annotated tags
-	- A full Git object that references a commit
-	- `git tag -a [-m <msg> | -F <file>] <tagname> [<commit>]` (`<commit>` defaults to `HEAD`)
-	- `git show <tagname>` displays the tag object information followed by the commit information
+  - A full Git object that references a commit
+  - `git tag -a [-m <msg> | -F <file>] <tagname> [<commit>]` (`<commit>` defaults to `HEAD`)
+  - `git show <tagname>` displays the tag object information followed by the commit information
 - `git push` does not automatically transfer tags
-	- To transfer a single tag: `git push <remote> <tagname>`
-	- To transfer all of the tags: `git push <remote> --tags`
+  - To transfer a single tag: `git push <remote> <tagname>`
+  - To transfer all of the tags: `git push <remote> --tags`
 
 ## Branches
 
@@ -221,13 +221,13 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 	
   ![alt text][pull_ff]
 
-[pull_ff]: figures/pull_ff.png "pull with a fast-forward merge"
+  [pull_ff]: figures/pull_ff.png "pull with a fast-forward merge"
 
   - `--no-ff`: always include a merge commit
 	
   ![alt text][pull_commit]
 
-[pull_commit]: figures/pull_merge_commit.png "pull with a merge commit"
+  [pull_commit]: figures/pull_merge_commit.png "pull with a merge commit"
 	
   - `--ff-only`: cancel instead of doing a merge commit when it is not fast-forwardable
   - `--rebase [--preserve-merges]`
