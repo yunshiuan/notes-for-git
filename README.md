@@ -1,6 +1,6 @@
 # Git Notes
 
-Here is my place to make notes about git and test git functions. Notes would include what I learned from [Version Control with Git](https://www.coursera.org/learn/version-control-with-git/home/info) on Coursera. Figures below are all taken from the course.
+Here is my place to make notes about Git. Most notes were organized from [Version Control with Git](https://www.coursera.org/learn/version-control-with-git/home/info) on Coursera. Figures below are all taken from the course.
 
 ## Table of contents
 
@@ -15,6 +15,7 @@ Here is my place to make notes about git and test git functions. Notes would inc
 - [Tracking branches](#tracking-branches)
 - [Network commands](#network-commands)
 - [Rebasing](#rebasing)
+- [Rewriting history](#rewriting-history)
 
 ----
 
@@ -137,8 +138,10 @@ There are four main types of merges:
 
 1. Fast-forward merge
 2. merge commit
-3. Squash merge
+3. Squash merge 
 4. Rebase
+
+Fast-forward merges and merge commits will be discussed in this section. The other two will be respectively included in [Rebasing](#rebasing) and [Rewriting history](#rewriting-history) sections.
 
 ### Fast-forward merge
 
@@ -231,7 +234,7 @@ A tracking branch is a local branch that represent a remote one. It looks like `
     [pull_commit]: figures/pull_merge_commit.png "pull with a merge commit"
 	
   - `--ff-only`: cancel instead of doing a merge commit when it is not fast-forwardable
-  - `--rebase [--preserve-merges]` (See the next section)
+  - `--rebase [--preserve-merges]` (See [Rebasing](#rebasing))
 - If there are uncommitted changes when `git pull`ing
   - Aborted automatically if they are conflicting
   - Keeping them untouched otherwise
@@ -267,3 +270,37 @@ A tracking branch is a local branch that represent a remote one. It looks like `
   # Equivalent to
   git rebase master featureX
   ```
+
+## Rewriting history
+
+### Amending a commit
+
+- Changes the most recent commit and creates a new SHA-1 with either or both of
+  - Changed commit message
+  - Changed project files
+- `git commit --amend [-m] [<new_commit_message>]` to amend the most recent commit
+- `git commit --amend --no-edit` to reuse the previous commit message
+
+### Interactive rebase
+
+- `git rebase -i <after_this_commit>` lists commits in the current branch after `<after_this_commit>` in an editor and they can all be modified
+- Interactive rebase options include
+  - Use the commit as is
+  - Edit the commit message
+  - Stop and edit the commit
+  - Drop (delete) the commit
+  - Squash
+  - Fixup
+  - Reorder commits
+  - Execute shell commands
+
+### Squash merge
+
+- Merges the tip of the topic branch onto the tip of the base branch and commits the result
+
+  ![alt text][squash_merge]
+
+  [squash_merge]: figures/squash_merge.png "squash merge"
+
+- After deleting the topic branch label, the commits in the topic branch are no longer part of any named branch and will be garbage collected by Git
+- `git merge --squash <topic_branch>`
