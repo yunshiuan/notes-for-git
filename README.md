@@ -14,6 +14,7 @@ Here is my place to make notes about git and test git functions. Notes would inc
 - [Merge conflicts](#merge-conflicts)
 - [Tracking branches](#tracking-branches)
 - [Network commands](#network-commands)
+- [Rebasing](#rebasing)
 
 ----
 
@@ -230,7 +231,7 @@ A tracking branch is a local branch that represent a remote one. It looks like `
     [pull_commit]: figures/pull_merge_commit.png "pull with a merge commit"
 	
   - `--ff-only`: cancel instead of doing a merge commit when it is not fast-forwardable
-  - `--rebase [--preserve-merges]`
+  - `--rebase [--preserve-merges]` (See the next section)
 - If there are uncommitted changes when `git pull`ing
   - Aborted automatically if they are conflicting
   - Keeping them untouched otherwise
@@ -240,3 +241,29 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 - Adds new objects and references to the remote repository
 - `git push [-u] [<repository>] [<branch>]`, where `-u` (`--set-upstream`) tracks this branch
 - `fetch`ing or `pull`ing before `push`ing is suggested - the push will be rejected if the tracking branch is not current
+
+## Rebasing
+
+- __Rewrites the history__ so do not do this to the shared history
+- Moves commits to a new parent, when `rebase`ing, Git applies the differences to the new parent commit
+
+  ![alt text][rebase]
+
+  [rebase]: figures/rebase.png "rebase"
+
+- `Rebase`ing is a merge so conflicts can happen, commit by commit
+
+  ![alt text][conflict_merge_rebase]
+
+  [conflict_merge_rebase]: figures/conflict_merge_rebase.png "resolving conflicts when merging and rebasing"
+
+- `git rebase <upstream>` changes the parent of the currently checked out branch to `<upstream>`
+- `git rebase <upstream> <branch>` checks out `<branch>` and changes its parent `<upstream>`
+
+  ```shell
+  git checkout featureX
+  git rebase master
+  
+  # Equivalent to
+  git rebase master featureX
+  ```
