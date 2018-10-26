@@ -26,6 +26,12 @@ Git models the relationship of commits with directed acyclic graph (DAG). The ar
 - [Reference Manual](https://git-scm.com/docs)
 - [Pro Git](https://git-scm.com/book/en/v2)
 
+### Common works on GitHub
+
+- [Syncing a fork](https://help.github.com/articles/syncing-a-fork/)
+- [Closing issues using keywords](https://help.github.com/articles/closing-issues-using-keywords/)
+- [Comparing workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
+
 ## Git syntax
 
 `git [command] [--flags] [arguments]`
