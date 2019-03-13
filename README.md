@@ -331,7 +331,7 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 ### Squash merge
 
 - Merges the tip of the topic branch onto the tip of the base branch and commits the result
-
+  ![alt text](figures/squash_merge_with_description)
   ![alt text][squash_merge]
 
   [squash_merge]: figures/squash_merge.png "squash merge"
