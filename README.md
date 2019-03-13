@@ -324,6 +324,7 @@ A tracking branch is a local branch that represent a remote one. It looks like `
   - Execute shell commands
 
   ![alt text](figures/interactive_rebase.png)
+  ![alt text](figures/interactive_revase_vs_delete.png)
 
 ### Squash merge
 
