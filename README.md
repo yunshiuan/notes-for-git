@@ -323,6 +323,8 @@ A tracking branch is a local branch that represent a remote one. It looks like `
   - Reorder commits
   - Execute shell commands
 
+#### Squash a commit vs. Delete a commit
+
   ![alt text](figures/interactive_rebase.png)
   ![alt text](figures/interactive_rebase_vs_delete.png)
 
