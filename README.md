@@ -4,18 +4,41 @@ Here is my place to make notes about Git. Most notes were organized from [Versio
 
 ## Table of contents
 
-- [Documentation](#documentation)
-- [Git syntax](#git-syntax)
-- [Getting help](#getting-help)
-- [Configuration](#configuration)
-- [Git references](#git-references)
-- [Branches](#branches)
-- [Merging](#merging)
-- [Merge conflicts](#merge-conflicts)
-- [Tracking branches](#tracking-branches)
-- [Network commands](#network-commands)
-- [Rebasing](#rebasing)
-- [Rewriting history](#rewriting-history)
+- [Git Notes](#git-notes)
+  - [Table of contents](#table-of-contents)
+  - [Documentation](#documentation)
+    - [Common works on GitHub](#common-works-on-github)
+  - [Git syntax](#git-syntax)
+  - [Getting help](#getting-help)
+    - [Reading help](#reading-help)
+  - [Configuration](#configuration)
+  - [Git references](#git-references)
+    - [Branch label and HEAD](#branch-label-and-head)
+    - [Prior commits](#prior-commits)
+    - [Tags](#tags)
+  - [Branches](#branches)
+    - [Viewing branches](#viewing-branches)
+    - [Creating branches](#creating-branches)
+    - [Checkout](#checkout)
+    - [Deleting branches](#deleting-branches)
+    - [Dangling commits](#dangling-commits)
+  - [Merging](#merging)
+    - [Fast-forward merge](#fast-forward-merge)
+    - [Merge commit](#merge-commit)
+  - [Merge conflicts](#merge-conflicts)
+    - [Resolving conflicts](#resolving-conflicts)
+    - [Reading conflict markers](#reading-conflict-markers)
+  - [Tracking branches](#tracking-branches)
+  - [Network commands](#network-commands)
+    - [Clone](#clone)
+    - [Fetch](#fetch)
+    - [Pull](#pull)
+    - [Push](#push)
+  - [Rebasing](#rebasing)
+  - [Rewriting history](#rewriting-history)
+    - [Amending a commit](#amending-a-commit)
+    - [Interactive rebase](#interactive-rebase)
+    - [Squash merge](#squash-merge)
 
 ----
 
@@ -299,6 +322,8 @@ A tracking branch is a local branch that represent a remote one. It looks like `
   - Fixup
   - Reorder commits
   - Execute shell commands
+
+  ![alt text](figures/interactive_rebase.png)
 
 ### Squash merge
 
