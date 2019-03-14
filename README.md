@@ -6,6 +6,7 @@ Here is my place to make notes about Git. Most notes were organized from [Versio
 
 - [Git Notes](#git-notes)
   - [Table of contents](#table-of-contents)
+  - [Recommended Markdown Editor](#recommended-markdown-editor)
   - [Documentation](#documentation)
     - [Common works on GitHub](#common-works-on-github)
   - [Git syntax](#git-syntax)
@@ -41,7 +42,19 @@ Here is my place to make notes about Git. Most notes were organized from [Versio
     - [Squash merge](#squash-merge)
 
 ----
+## Recommended Markdown editor
 
+- [Atom](https://atom.io/)
+  - Developed by the Github team.
+  - Support Github-flavored rendering style
+  - Recommneded packages to install along with Atom:
+    - [Markdown-Writer for Atom](https://atom.io/packages/markdown-writer): Enable all the keyboard shortcuts for markdown
+      - [Enable the shortcuts after installation](https://github.com/zhuochun/md-writer/wiki/Settings-for-Keymaps)
+      - To add the original default keymaps, run command (`cmd + shift + p`), enter `Markdown Writer: Create Default Keymaps`.
+    - [Toolbar for Markdown-Writer](https://atom.io/packages/tool-bar-markdown-writer): A tool-bar plugin that adds Markdown editing buttons.
+    - [Markdown preview enhanced](https://atom.io/packages/markdown-preview-enhanced): Support previewing links to external files by third-party program (e.g., open docx by Word)
+    - [Markdown Scroll Sync](https://atom.io/packages/markdown-scroll-sync): Sync the scrolling behavior between the editor and the preview screen
+    - [Other useful packages](https://www.news47ell.com/how-to/atom-best-markdown-editor-mac/)
 ## Documentation
 
 Git models the relationship of commits with directed acyclic graph (DAG). The arrows point to a commit's parent(s).
@@ -167,7 +180,7 @@ There are four main types of merges:
 
 1. Fast-forward merge
 2. merge commit
-3. Squash merge 
+3. Squash merge
 4. Rebase
 
 Fast-forward merges and merge commits will be discussed in this section. The other two will be respectively included in [Rebasing](#rebasing) and [Rewriting history](#rewriting-history) sections.
@@ -251,17 +264,17 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 - `git pull` = `git fetch` + `git merge FETCH_HEAD`
 - Merging options
   - `--ff` (default): fast-forward if possible, otherwise perform a merge commit
-	
+
     ![alt text][pull_ff]
 
     [pull_ff]: figures/pull_ff.png "pull with a fast-forward merge"
 
   - `--no-ff`: always include a merge commit
-	
+
     ![alt text][pull_commit]
 
     [pull_commit]: figures/pull_merge_commit.png "pull with a merge commit"
-	
+
   - `--ff-only`: cancel instead of doing a merge commit when it is not fast-forwardable
   - `--rebase [--preserve-merges]` (See [Rebasing](#rebasing))
 - If there are uncommitted changes when `git pull`ing
@@ -295,7 +308,7 @@ A tracking branch is a local branch that represent a remote one. It looks like `
   ```shell
   git checkout featureX
   git rebase master
-  
+
   # Equivalent to
   git rebase master featureX
   ```
