@@ -96,6 +96,16 @@ Take `git fakecommand (-p|--patch) [<id>] [--] [<paths>...]` as an example.
 
 The precedence is: local > global > system
 
+- Show user name and e-mail
+
+`git config user.name`
+`git config user.email`
+
+- Edit user name and
+
+`git config user.name "your_name"`
+`git config user.email "your_email@gmail.com"`
+
 ## Git references
 
 Git references can be substituted for SHA-1 hashes. For example, `git show HEAD` can be used instead of `git show <commit>`.
