@@ -40,6 +40,7 @@ Here is my place to make notes about Git. Most notes were organized from [Versio
     - [Amending a commit](#amending-a-commit)
     - [Interactive rebase](#interactive-rebase)
     - [Squash merge](#squash-merge)
+  - [Git workflow](#gitwork-flow)
 
 ----
 ## Recommended Markdown editor
@@ -361,3 +362,8 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 
 - After deleting the topic branch label, the commits in the topic branch are no longer part of any named branch and will be garbage collected by Git
 - `git merge --squash <topic_branch>`
+
+## Git Workflow
+
+- Fork
+ ![git_workflow](figures/git_workflow_fork.png)
