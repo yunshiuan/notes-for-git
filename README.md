@@ -40,7 +40,9 @@ Here is my place to make notes about Git. Most notes were organized from [Versio
     - [Amending a commit](#amending-a-commit)
     - [Interactive rebase](#interactive-rebase)
     - [Squash merge](#squash-merge)
-  - [Git workflow](#gitwork-flow)
+  - [Git workflow](#git-workflow)
+  - [Other Issues](#other-issues)
+    - [Retrieve an accidentally deleted stash](#retrieve-an-accidentally-deleted-stash)
 
 ----
 ## Recommended Markdown editor
@@ -367,3 +369,14 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 
 - Fork
  ![git_workflow](figures/git_workflow_fork.png)
+
+# Other Issues
+
+## Retrieve an accidentally deleted stash
+ - https://community.atlassian.com/t5/Sourcetree-questions/Retrieve-a-deleted-stash/qaq-p/162673
+ - Unless you have a backup somewhere else, this is difficult. However stashes are stored as regular git objects and provided this was done recently then the commit object will still be there and not garbage collected yet, it just won't have any references to it.
+
+  - You can list all unreachable commits , but you have to drop to the command line (click Terminal on the toolbar). Then type: `git fsck --unreachable`
+  - This will show you all the commits which are not reachable by a branch / tag and which haven't been garbage collected yet. Look for the ones that say 'unreachable commit', ignore the blobs. The chances are it will be the one closest the top, unless you've performed some other actions which created more unreachables. You can examine the commits by doing 'git show <sha>', and this should identify the stash, it'll probably be called 'On master: <your comment>' or similar. Once you've found it, copy the SHA.
+
+  - To recover this you then do: `git stash apply [the SHA value]`, which will bring it back into your working copy.
