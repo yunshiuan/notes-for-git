@@ -1,6 +1,6 @@
 # Git Notes
 
-Here is my place to make notes about Git. Most notes were organized from [Version Control with Git](https://www.coursera.org/learn/version-control-with-git/home/info) on Coursera. Figures below are all taken from the course.
+Here is my place to make notes about Git. Most notes were organized from [Version Control with Git](https://www.coursera.org/learn/version-control-with-git/home/info) on Coursera (**highy recommend the course as a git tutorial**). Figures below are all taken from the course.
 
 ## Table of contents
 
