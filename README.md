@@ -35,6 +35,7 @@ Here is my place to make notes about Git. Most notes were organized from [Versio
     - [Fetch](#fetch)
     - [Pull](#pull)
     - [Push](#push)
+      - [Add multiple push remote repos](#add-multiple-push-remote-repos)
   - [Rebasing](#rebasing)
   - [Rewriting history](#rewriting-history)
     - [Amending a commit](#amending-a-commit)
@@ -299,6 +300,36 @@ A tracking branch is a local branch that represent a remote one. It looks like `
 - Adds new objects and references to the remote repository
 - `git push [-u] [<repository>] [<branch>]`, where `-u` (`--set-upstream`) tracks this branch
 - `fetch`ing or `pull`ing before `push`ing is suggested - the push will be rejected if the tracking branch is not current
+
+### Add multiple push remote repos
+
+See: https://gist.github.com/rvl/c3f156e117e22a25f242
+
+Remotes
+=======
+
+Suppose your git remotes are set up like this::
+
+    git remote add github git@github.com:muccg/my-project.git
+    git remote add bb git@bitbucket.org:ccgmurdoch/my-project.git
+
+The ``origin`` remote probably points to one of these URLs.
+
+
+Remote Push URLs
+================
+
+To set up the push URLs do this::
+
+    git remote set-url --add --push origin git@github.com:muccg/my-project.git
+    git remote set-url --add --push origin git@bitbucket.org:ccgmurdoch/my-project.git
+
+It will change the ``remote.origin.pushurl`` config entry. Now pushes
+will send to both of these destinations, rather than the fetch URL.
+
+Check it out by running::
+
+    git remote show origin
 
 ## Rebasing
 
